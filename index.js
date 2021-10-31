@@ -17,9 +17,30 @@ function addEventListener()
 function addTodo(event)
 {   
     
-    const newTodo = todoInput.value.trim();
-    
-    console.log(newTodo);
-
+    const newTodo = todoInput.value.trim();   
+    addTodoUI(newTodo);
     event.preventDefault();
 }
+
+function addTodoUI(newTodo)
+{
+   const list = document.createElement("li");
+   const link = document.createElement("a");
+
+   list.className = "list-group-item d-flex justify-content-between";
+   link.className = "delete-item";
+   link.href = "#";
+   link.innerHTML = "<i class = \"fa fa-remove\"></i>"; 
+}
+
+
+
+/* <li class="list-group-item d-flex justify-content-between">
+
+<a href = "#" class ="delete-item">
+   <i class = "fa fa-remove"></i>
+</a>
+
+</li> */
+
+
