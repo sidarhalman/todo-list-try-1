@@ -37,13 +37,11 @@ function showAlert(alert, message)
     alertDiv.innerHTML = message;
     firstCardBody.appendChild(alertDiv);
     console.log(alertDiv);
+    setTimeout(function()
+    {
+        alertDiv.remove();
+    },1350);
 }
-
-/*
-<div class="alert alert-success">
-  <strong>Success!</strong> Indicates a successful or positive action.
-</div> 
-*/
 
 function addTodoUI(newTodo)
 {
