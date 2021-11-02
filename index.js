@@ -19,29 +19,15 @@ function addTodo(event)
     const newTodo = todoInput.value.trim();
     if(newTodo === "")
     {
-        showAlert("danger", "Write a Todo!");
+        showAlert("danger", "Write a ToDo!");
     }
     else
     {
         addTodoUI(newTodo);
-        addTodoToStorage();
         showAlert("success", "Todo added successful!")
     }
 
     event.preventDefault();
-}
-
-function addTodoToStorage(newtodo)
-{
-    let todos;
-    if(localStorage.getItem("todos") === null)
-    {
-        todos = [];
-    }
-    else
-    {
-        todos = lo
-    }
 }
 
 function showAlert(alert, message)
