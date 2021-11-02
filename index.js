@@ -19,15 +19,37 @@ function addTodo(event)
     const newTodo = todoInput.value.trim();
     if(newTodo === "")
     {
-        showAlert("danger", "Write a ToDo!");
+        showAlert("danger", "What do you have to do?");
     }
     else
     {
         addTodoUI(newTodo);
+        addTodoToStorage(newTodo);
         showAlert("success", "Todo added successful!")
     }
 
     event.preventDefault();
+}
+
+function getTodosFromStorage()
+{
+    let todos;
+    if(localStorage.getItem("todos") === null)
+    {
+        todos = [];
+    }
+    else
+    {
+        todos = JSON.parse(localStorage.getItem("todos"))
+    }
+    return todos;
+}
+
+function addTodoToStorage(newTodo)
+{
+    let todos = getTodosFromStorage();
+    todos.push(newTodo);
+    localStorage.setItem("todos", JSON.stringify(todos));
 }
 
 function showAlert(alert, message)
@@ -36,7 +58,6 @@ function showAlert(alert, message)
     alertDiv.className = `alert alert-${alert}`
     alertDiv.innerHTML = message;
     firstCardBody.appendChild(alertDiv);
-    console.log(alertDiv);
     setTimeout(function()
     {
         alertDiv.remove();
