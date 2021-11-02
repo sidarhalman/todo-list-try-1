@@ -19,15 +19,29 @@ function addTodo(event)
     const newTodo = todoInput.value.trim();
     if(newTodo === "")
     {
-        showAlert("danger", "Todoyek binivisin!");
+        showAlert("danger", "Write a Todo!");
     }
     else
     {
         addTodoUI(newTodo);
-        showAlert("success", "Todo bi serkefti hat lezedekirin!")
+        addTodoToStorage();
+        showAlert("success", "Todo added successful!")
     }
 
     event.preventDefault();
+}
+
+function addTodoToStorage(newtodo)
+{
+    let todos;
+    if(localStorage.getItem("todos") === null)
+    {
+        todos = [];
+    }
+    else
+    {
+        todos = lo
+    }
 }
 
 function showAlert(alert, message)
