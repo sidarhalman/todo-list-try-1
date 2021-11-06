@@ -98,8 +98,22 @@ function deleteTodoFromUI(event)
     if(event.target.className === "fa fa-remove")
     {
         event.target.parentElement.parentElement.remove();
-        showAlert("success", "You deleted a Todo...")
+        deleteTodoFromStoraAge(event.target.parentElement.parentElement.textContent);
+        showAlert("success", "You deleted a Todo...");
     }
+};
+
+function deleteTodoFromStoraAge(deleteTodo)
+{
+    let todos = getTodosFromStorage();
+    todos.forEach(function(todo,index)
+    {
+        if(todo === deleteTodo)
+        {
+            todos.splice(index,1)
+        }
+        localStorage.setItem("todos", JSON.stringify(todos));
+    })    
 }
 
 
