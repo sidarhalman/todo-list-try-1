@@ -91,4 +91,15 @@ function addTodoUI(newTodo)
     todoInput.value = "";
 };
 
+todoList.addEventListener("click", deleteTodoFromUI);
+function deleteTodoFromUI(event)
+{
+    console.log("working");
+    if(event.target.className === "fa fa-remove")
+    {
+        event.target.parentElement.parentElement.remove();
+        showAlert("success", "You deleted a Todo...")
+    }
+}
+
 
